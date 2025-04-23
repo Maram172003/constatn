@@ -1,3 +1,5 @@
+import 'package:constatn/shared/constants/app_constants.dart';
+import 'package:constatn/shared/values/app_colors.dart';
 import 'package:constatn/start_report_view.dart';
 import 'package:flutter/material.dart';
 
@@ -8,63 +10,70 @@ class DashboardView extends StatelessWidget {
   Widget build(BuildContext context) {
     return SafeArea(
       child: Scaffold(
-          body: Container(
-        width: double.infinity,
-        height: double.infinity,
-        color: Colors.white,
-        child: Stack(
-          children: [
-            Center(
-              child: Column(
-                mainAxisAlignment: MainAxisAlignment.center,
-                children: [
-                  Column(
-                    children: [
-                      Image.asset(
-                        'assets/images/voiture.jpg',
-                      ),
-                      const SizedBox(height: 60),
-                      Text(
-                        "Restez calme : nous nous occupons de tout",
-                        textAlign: TextAlign.center,
-                        style: TextStyle(
-                          fontSize: 40,
-                          fontWeight: FontWeight.bold,
-                        ),
-                      ),
-                      const SizedBox(height: 70),
-                      ElevatedButton(
-                        onPressed: () {
-                          Navigator.push(
-                            context,
-                            MaterialPageRoute(
-                                builder: (context) => const User()),
-                          );
-                        },
-                        style: ElevatedButton.styleFrom(
-                          backgroundColor: const Color(0xFFF8D9D9),
-                          foregroundColor: Colors.black,
-                          shape: RoundedRectangleBorder(
-                            borderRadius: BorderRadius.circular(20),
-                          ),
-                          padding: const EdgeInsets.symmetric(
-                              horizontal: 100, vertical: 18),
-                          textStyle: const TextStyle(
-                            fontSize: 20,
-                          ),
-                        ),
-                        child: Text(
-                          "Démarrer le constat",
-                        ),
-                      ),
-                    ],
+        body: Container(
+            height: MediaQuery.of(context).size.height,
+            width: MediaQuery.of(context).size.width,
+            color: Colors.white,
+            child: Column(
+              mainAxisAlignment: MainAxisAlignment.center,
+              children: [
+                Padding(
+                  padding: const EdgeInsets.symmetric(
+                    horizontal: 50,
+                    vertical: 40,
                   ),
-                ],
-              ),
-            )
-          ],
-        ),
-      )),
+                  child: Image.asset(
+                    'assets/images/voiture.jpg',
+                  ),
+                ),
+                Text(
+                  "Restez calme,\nnous nous occupons de tout !",
+                  textAlign: TextAlign.center,
+                  style: TextStyle(
+                    fontWeight: FontWeight.bold,
+                    fontFamily: kGlacialStyle,
+                    fontSize: 25,
+                    color: primaryColor.shade500,
+                  ),
+                ),
+                Padding(
+                  padding: const EdgeInsets.symmetric(
+                    horizontal: 20,
+                    vertical: 40,
+                  ),
+                  child: OutlinedButton(
+                    onPressed: () {
+                      Navigator.push(
+                        context,
+                        MaterialPageRoute(
+                          builder: (context) => const User(),
+                        ),
+                      );
+                    },
+                    style: ElevatedButton.styleFrom(
+                      foregroundColor: Colors.black,
+                      shape: RoundedRectangleBorder(
+                        borderRadius: BorderRadius.circular(20),
+                      ),
+                      padding: const EdgeInsets.symmetric(
+                        horizontal: 50,
+                        vertical: 18,
+                      ),
+                    ),
+                    child: Text(
+                      "Démarrer le constat",
+                      style: TextStyle(
+                        fontFamily: kGlacialStyle,
+                        fontSize: 20,
+                        fontWeight: FontWeight.bold,
+                        color: primaryColor,
+                      ),
+                    ),
+                  ),
+                ),
+              ],
+            )),
+      ),
     );
   }
 }

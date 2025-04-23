@@ -1,6 +1,8 @@
 import 'package:constatn/menu/home_view.dart';
 import 'package:constatn/authentication/forget_password_view.dart';
 import 'package:constatn/authentication/signup_view.dart' show SignupView;
+import 'package:constatn/shared/constants/app_constants.dart';
+import 'package:constatn/shared/values/app_colors.dart';
 import 'package:flutter/material.dart';
 
 class LoginView extends StatelessWidget {
@@ -24,115 +26,223 @@ class LoginView extends StatelessWidget {
               ),
             ),
             Center(
-              child: Column(
-                mainAxisAlignment: MainAxisAlignment.center,
-                crossAxisAlignment: CrossAxisAlignment.center,
-                children: [
-                  Text(
-                    "Bienvenue",
-                    style: TextStyle(
-                      fontSize: 40,
-                      fontWeight: FontWeight.bold,
-                      color: Colors.black87, // you can tweak this too
-                    ),
-                  ),
-                  Text("Entrez vos identifiants pour vous connecter",
+              child: Padding(
+                padding: const EdgeInsets.symmetric(
+                  horizontal: 16,
+                ),
+                child: Column(
+                  mainAxisAlignment: MainAxisAlignment.center,
+                  crossAxisAlignment: CrossAxisAlignment.center,
+                  children: [
+                    Text(
+                      "Bienvenue",
                       style: TextStyle(
-                        fontSize: 18,
-                      )),
-                  Container(
-                    margin: EdgeInsets.symmetric(vertical: 27),
-                    decoration: BoxDecoration(
-                      color: Color(0xFFEAFFFF),
-                      borderRadius: BorderRadius.circular(19),
-                    ),
-                    width: 380,
-                    child: TextField(
-                      decoration: InputDecoration(
-                          border: InputBorder.none,
-                          hintText: "Email ",
-                          hintStyle: TextStyle(fontSize: 25),
-                          prefixIcon: Icon(Icons.email)),
-                    ),
-                  ),
-                  Container(
-                    decoration: BoxDecoration(
-                      color: Color(0xFFEAFFFF),
-                      borderRadius: BorderRadius.circular(19),
-                    ),
-                    width: 380,
-                    child: TextField(
-                      obscureText: true,
-                      decoration: InputDecoration(
-                        border: InputBorder.none,
-                        hintText: "Mot de passe ",
-                        hintStyle: TextStyle(fontSize: 25),
-                        prefixIcon: Icon(Icons.lock),
-                        suffixIcon: Icon(Icons.visibility),
+                        fontSize: 40,
+                        fontFamily: kGlacialStyle,
+                        fontWeight: FontWeight.bold,
+                        color: secondaryColor,
                       ),
                     ),
-                  ),
-                  const SizedBox(height: 27),
-                  ElevatedButton(
-                    onPressed: () {
-                      Navigator.push(
-                        context,
-                        MaterialPageRoute(
-                            builder: (context) => const HomeView()),
-                      );
-                    },
-                    style: ElevatedButton.styleFrom(
-                      backgroundColor: const Color(0xFFEAFFFF),
-                      foregroundColor: Colors.black,
-                      shape: RoundedRectangleBorder(
-                        borderRadius: BorderRadius.circular(20),
+                    Padding(
+                      padding: const EdgeInsets.only(
+                        bottom: 40,
                       ),
+                      child: Text(
+                        "Entrez vos identifiants pour vous connecter",
+                        style: TextStyle(
+                          fontFamily: kGlacialStyle,
+                          fontSize: 18,
+                          color: secondaryColor,
+                        ),
+                      ),
+                    ),
+                    Padding(
                       padding: const EdgeInsets.symmetric(
-                          horizontal: 100, vertical: 18),
-                      textStyle: const TextStyle(
-                        fontSize: 25,
+                        vertical: 16,
+                      ),
+                      child: TextFormField(
+                        decoration: InputDecoration(
+                          labelText: 'Adresse email*',
+                          labelStyle: TextStyle(
+                            fontFamily: kGlacialStyle,
+                            color: primaryColor,
+                            fontSize: 16,
+                          ),
+                          hintStyle: TextStyle(
+                            color: secondaryColor.shade300,
+                            fontFamily: kGlacialStyle,
+                            fontSize: 16,
+                          ),
+                          border: OutlineInputBorder(
+                            borderSide: BorderSide(
+                              color: Colors.black,
+                            ),
+                          ),
+                          focusedBorder: OutlineInputBorder(
+                            borderSide: BorderSide(
+                              color: Colors.black,
+                            ),
+                          ),
+                          enabledBorder: OutlineInputBorder(
+                            borderSide: BorderSide(
+                              color: Colors.black,
+                            ),
+                          ),
+                          floatingLabelBehavior: FloatingLabelBehavior.always,
+                          prefixIconConstraints: const BoxConstraints(
+                            maxWidth: 165,
+                          ),
+                          contentPadding: EdgeInsets.symmetric(
+                            horizontal: 8,
+                          ),
+                          hintText: "Maram@gmail.com",
+                          prefixIcon: Padding(
+                            padding: const EdgeInsets.only(
+                              left: 8,
+                            ),
+                            child: Icon(
+                              Icons.email_outlined,
+                            ),
+                          ),
+                        ),
                       ),
                     ),
-                    child: Text("Se connecter"),
-                  ),
-                  Row(
-                    mainAxisAlignment: MainAxisAlignment.center,
-                    children: [
-                      TextButton(
-                        onPressed: () {
-                          Navigator.push(
-                            context,
-                            MaterialPageRoute(
-                                builder: (context) =>
-                                    const ForgetPasswordView()),
-                          );
-                        },
-                        child: Text("Mot de passe oublié ?",
-                            style: TextStyle(color: Colors.purple)),
-                      )
-                    ],
-                  ),
-                  Row(
-                    mainAxisAlignment: MainAxisAlignment.center,
-                    children: [
-                      Text("Vous n'avez pas du compte ?",
+                    Padding(
+                      padding: const EdgeInsets.only(
+                        bottom: 16,
+                      ),
+                      child: TextFormField(
+                        obscureText: true,
+                        decoration: InputDecoration(
+                          labelText: 'Mot de passe*',
+                          labelStyle: TextStyle(
+                            fontFamily: kGlacialStyle,
+                            color: primaryColor,
+                            fontSize: 16,
+                          ),
+                          hintStyle: TextStyle(
+                            color: secondaryColor.shade300,
+                            fontFamily: kGlacialStyle,
+                            fontSize: 16,
+                          ),
+                          border: OutlineInputBorder(
+                            borderSide: BorderSide(
+                              color: Colors.black,
+                            ),
+                          ),
+                          focusedBorder: OutlineInputBorder(
+                            borderSide: BorderSide(
+                              color: Colors.black,
+                            ),
+                          ),
+                          enabledBorder: OutlineInputBorder(
+                            borderSide: BorderSide(
+                              color: Colors.black,
+                            ),
+                          ),
+                          floatingLabelBehavior: FloatingLabelBehavior.always,
+                          prefixIconConstraints: const BoxConstraints(
+                            maxWidth: 165,
+                          ),
+                          contentPadding: EdgeInsets.symmetric(
+                            horizontal: 8,
+                          ),
+                          hintText: "*******",
+                          prefixIcon: Padding(
+                            padding: const EdgeInsets.only(
+                              left: 8,
+                            ),
+                            child: Icon(
+                              Icons.lock,
+                            ),
+                          ),
+                        ),
+                      ),
+                    ),
+                    ElevatedButton(
+                      onPressed: () {
+                        Navigator.push(
+                          context,
+                          MaterialPageRoute(
+                              builder: (context) => const HomeView()),
+                        );
+                      },
+                      style: ElevatedButton.styleFrom(
+                        backgroundColor: primaryColor,
+                        foregroundColor: Colors.black,
+                        shape: RoundedRectangleBorder(
+                          borderRadius: BorderRadius.circular(20),
+                        ),
+                        padding: const EdgeInsets.symmetric(
+                          horizontal: 110,
+                          vertical: 18,
+                        ),
+                      ),
+                      child: Text(
+                        "Se connecter",
+                        style: TextStyle(
+                          fontFamily: kGlacialStyle,
+                          fontSize: 20,
+                          fontWeight: FontWeight.bold,
+                          color: Colors.white,
+                        ),
+                      ),
+                    ),
+                    Row(
+                      mainAxisAlignment: MainAxisAlignment.center,
+                      children: [
+                        TextButton(
+                          onPressed: () {
+                            Navigator.push(
+                              context,
+                              MaterialPageRoute(
+                                  builder: (context) =>
+                                      const ForgetPasswordView()),
+                            );
+                          },
+                          child: Text(
+                            "Mot de passe oublié ?",
+                            style: TextStyle(
+                              fontFamily: kGlacialStyle,
+                              color: primaryColor.shade400,
+                              fontWeight: FontWeight.bold,
+                            ),
+                          ),
+                        )
+                      ],
+                    ),
+                    Row(
+                      mainAxisAlignment: MainAxisAlignment.center,
+                      children: [
+                        Text(
+                          "Vous n'avez pas du compte ?",
                           style: TextStyle(
+                            fontFamily: kGlacialStyle,
                             fontSize: 18,
-                          )),
-                      TextButton(
-                        onPressed: () {
-                          Navigator.push(
-                            context,
-                            MaterialPageRoute(
-                                builder: (context) => const SignupView()),
-                          );
-                        },
-                        child: Text("S'identifier",
-                            style: TextStyle(color: Colors.purple)),
-                      )
-                    ],
-                  )
-                ],
+                            color: secondaryColor,
+                          ),
+                        ),
+                        TextButton(
+                          onPressed: () {
+                            Navigator.push(
+                              context,
+                              MaterialPageRoute(
+                                  builder: (context) => const SignupView()),
+                            );
+                          },
+                          child: Text(
+                            "S'identifier",
+                            style: TextStyle(
+                              fontFamily: kGlacialStyle,
+                              color: primaryColor.shade400,
+                              fontWeight: FontWeight.bold,
+                            ),
+                          ),
+                        )
+                      ],
+                    )
+                  ],
+                ),
               ),
             )
           ],

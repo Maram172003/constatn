@@ -1,5 +1,8 @@
 import 'package:constatn/authentication/login_view.dart';
 import 'package:constatn/authentication/signup_view.dart';
+import 'package:constatn/shared/constants/app_constants.dart';
+import 'package:constatn/shared/values/app_colors.dart';
+import 'package:constatn/shared/widgets/custom_painter_widget.dart';
 import 'package:flutter/material.dart';
 
 class Welcome extends StatelessWidget {
@@ -15,17 +18,10 @@ class Welcome extends StatelessWidget {
         color: Colors.white,
         child: Stack(
           children: [
-            Positioned(
-              top: 0,
-              left: 0,
-              child: Image.asset("assets/images/2.png"),
+            CustomPaint(
+              size: MediaQuery.of(context).size,
+              painter: CustomPainterWidget(),
             ),
-            Positioned(
-                bottom: 0,
-                right: 0,
-                child: Image.asset(
-                  "assets/images/3.png",
-                )),
             Center(
               child: Column(
                 mainAxisAlignment: MainAxisAlignment.center,
@@ -42,7 +38,7 @@ class Welcome extends StatelessWidget {
                       ),
                       Image.asset(
                         "assets/images/4.png",
-                        height: 320,
+                        height: 220,
                         width: 450,
                         fit: BoxFit.contain,
                       ),
@@ -55,42 +51,57 @@ class Welcome extends StatelessWidget {
                           );
                         },
                         style: ElevatedButton.styleFrom(
-                          backgroundColor: const Color(0xFFF8D9D9),
+                          backgroundColor: primaryColor,
                           foregroundColor: Colors.black,
                           shape: RoundedRectangleBorder(
                             borderRadius: BorderRadius.circular(20),
                           ),
                           padding: const EdgeInsets.symmetric(
                               horizontal: 100, vertical: 18),
-                          textStyle: const TextStyle(
-                            fontSize: 20,
-                          ),
-                        ),
-                        child: Text("Se connecter"),
-                      ),
-                      const SizedBox(height: 20),
-                      ElevatedButton(
-                        onPressed: () {
-                          Navigator.push(
-                            context,
-                            MaterialPageRoute(
-                                builder: (context) => const SignupView()),
-                          );
-                        },
-                        style: ElevatedButton.styleFrom(
-                          backgroundColor: const Color(0xFFF8D9D9),
-                          foregroundColor: Colors.black,
-                          shape: RoundedRectangleBorder(
-                            borderRadius: BorderRadius.circular(20),
-                          ),
-                          padding: const EdgeInsets.symmetric(
-                              horizontal: 110, vertical: 18),
-                          textStyle: const TextStyle(
-                            fontSize: 20,
-                          ),
                         ),
                         child: Text(
-                          "S'identifier",
+                          "Se connecter",
+                          style: TextStyle(
+                            fontFamily: kGlacialStyle,
+                            fontSize: 20,
+                            fontWeight: FontWeight.bold,
+                            color: Colors.white,
+                          ),
+                        ),
+                      ),
+                      Padding(
+                        padding: EdgeInsets.only(
+                          top: 10,
+                        ),
+                        child: ElevatedButton(
+                          onPressed: () {
+                            Navigator.push(
+                              context,
+                              MaterialPageRoute(
+                                builder: (context) => const SignupView(),
+                              ),
+                            );
+                          },
+                          style: ElevatedButton.styleFrom(
+                            backgroundColor: primaryColor,
+                            foregroundColor: Colors.black,
+                            shape: RoundedRectangleBorder(
+                              borderRadius: BorderRadius.circular(20),
+                            ),
+                            padding: const EdgeInsets.symmetric(
+                              horizontal: 110,
+                              vertical: 18,
+                            ),
+                          ),
+                          child: Text(
+                            "S'identifier",
+                            style: TextStyle(
+                              fontFamily: kGlacialStyle,
+                              fontSize: 20,
+                              fontWeight: FontWeight.bold,
+                              color: Colors.white,
+                            ),
+                          ),
                         ),
                       )
                     ],

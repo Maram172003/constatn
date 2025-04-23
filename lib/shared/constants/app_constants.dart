@@ -1,0 +1,1 @@
+const String kGlacialStyle = 'Glacial';
