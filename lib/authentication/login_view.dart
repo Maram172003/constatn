@@ -1,30 +1,28 @@
-import 'package:constatn/home.dart';
-import 'package:constatn/password.dart';
-import 'package:constatn/signup.dart' show Signup;
+import 'package:constatn/menu/home_view.dart';
+import 'package:constatn/authentication/forget_password_view.dart';
+import 'package:constatn/authentication/signup_view.dart' show SignupView;
 import 'package:flutter/material.dart';
 
-class Login extends StatelessWidget {
-  const Login({super.key});
+class LoginView extends StatelessWidget {
+  const LoginView({super.key});
 
   @override
   Widget build(BuildContext context) {
     return SafeArea(
       child: Scaffold(
-      
         backgroundColor: Colors.white,
-
-
         body: Stack(
           children: [
-            Positioned(top: 16,
-             left: 16,
-             child: IconButton(
-             icon: const Icon(Icons.arrow_back, size: 30),
-             onPressed: () {
-              Navigator.pop(context);
-            },
-          ),
-        ),
+            Positioned(
+              top: 16,
+              left: 16,
+              child: IconButton(
+                icon: const Icon(Icons.arrow_back, size: 30),
+                onPressed: () {
+                  Navigator.pop(context);
+                },
+              ),
+            ),
             Center(
               child: Column(
                 mainAxisAlignment: MainAxisAlignment.center,
@@ -40,21 +38,13 @@ class Login extends StatelessWidget {
                   ),
                   Text("Entrez vos identifiants pour vous connecter",
                       style: TextStyle(
-                        fontSize: 18,)
-
-
-                  ),
-
+                        fontSize: 18,
+                      )),
                   Container(
                     margin: EdgeInsets.symmetric(vertical: 27),
-
                     decoration: BoxDecoration(
                       color: Color(0xFFEAFFFF),
                       borderRadius: BorderRadius.circular(19),
-
-
-
-
                     ),
                     width: 380,
                     child: TextField(
@@ -62,23 +52,13 @@ class Login extends StatelessWidget {
                           border: InputBorder.none,
                           hintText: "Email ",
                           hintStyle: TextStyle(fontSize: 25),
-                          prefixIcon: Icon(Icons.email)
-
-                      ),
-
-
+                          prefixIcon: Icon(Icons.email)),
                     ),
-
                   ),
                   Container(
-
                     decoration: BoxDecoration(
                       color: Color(0xFFEAFFFF),
                       borderRadius: BorderRadius.circular(19),
-
-
-
-
                     ),
                     width: 380,
                     child: TextField(
@@ -89,29 +69,29 @@ class Login extends StatelessWidget {
                         hintStyle: TextStyle(fontSize: 25),
                         prefixIcon: Icon(Icons.lock),
                         suffixIcon: Icon(Icons.visibility),
-
                       ),
-
-
                     ),
-
                   ),
-
                   const SizedBox(height: 27),
                   ElevatedButton(
-                    onPressed: (){
+                    onPressed: () {
                       Navigator.push(
                         context,
-                        MaterialPageRoute(builder: (context) => const Home()),
+                        MaterialPageRoute(
+                            builder: (context) => const HomeView()),
                       );
                     },
                     style: ElevatedButton.styleFrom(
-                      backgroundColor:  const  Color(0xFFEAFFFF),
+                      backgroundColor: const Color(0xFFEAFFFF),
                       foregroundColor: Colors.black,
-                      shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(20),),
-                      padding: const EdgeInsets.symmetric(horizontal: 100, vertical: 18),
-                      textStyle: const TextStyle(fontSize: 25,),
-
+                      shape: RoundedRectangleBorder(
+                        borderRadius: BorderRadius.circular(20),
+                      ),
+                      padding: const EdgeInsets.symmetric(
+                          horizontal: 100, vertical: 18),
+                      textStyle: const TextStyle(
+                        fontSize: 25,
+                      ),
                     ),
                     child: Text("Se connecter"),
                   ),
@@ -122,12 +102,14 @@ class Login extends StatelessWidget {
                         onPressed: () {
                           Navigator.push(
                             context,
-                            MaterialPageRoute(builder: (context) => const Password()),
+                            MaterialPageRoute(
+                                builder: (context) =>
+                                    const ForgetPasswordView()),
                           );
-
                         },
-                        child: Text("Mot de passe oublié ?",style: TextStyle(color: Colors.purple)),)
-
+                        child: Text("Mot de passe oublié ?",
+                            style: TextStyle(color: Colors.purple)),
+                      )
                     ],
                   ),
                   Row(
@@ -135,38 +117,27 @@ class Login extends StatelessWidget {
                     children: [
                       Text("Vous n'avez pas du compte ?",
                           style: TextStyle(
-                            fontSize: 18,)),
+                            fontSize: 18,
+                          )),
                       TextButton(
                         onPressed: () {
                           Navigator.push(
                             context,
-                            MaterialPageRoute(builder: (context) => const Signup()),
+                            MaterialPageRoute(
+                                builder: (context) => const SignupView()),
                           );
-
                         },
-                        child: Text("S'identifier",style: TextStyle(color: Colors.purple)),)
-
+                        child: Text("S'identifier",
+                            style: TextStyle(color: Colors.purple)),
+                      )
                     ],
                   )
-
-
-
-
-
-
                 ],
-
               ),
-
             )
           ],
-
         ),
       ),
-
-
-
-
     );
   }
 }

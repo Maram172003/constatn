@@ -1,9 +1,7 @@
-import 'package:constatn/login.dart';
-import 'package:constatn/signup.dart';
+import 'package:constatn/authentication/login_view.dart';
+import 'package:constatn/authentication/signup_view.dart';
 import 'package:constatn/welcome.dart';
 import 'package:flutter/material.dart';
-
-
 
 void main() {
   runApp(const MyApp());
@@ -19,8 +17,8 @@ class MyApp extends StatelessWidget {
       initialRoute: "/",
       routes: {
         "/": (context) => const Welcome(),
-        "/login": (context) => const Login(),
-        "/signup": (context) => const Signup(),
+        "/login": (context) => const LoginView(),
+        "/signup": (context) => const SignupView(),
       },
     );
   }

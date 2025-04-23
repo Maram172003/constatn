@@ -1,20 +1,18 @@
-
-import 'package:constatn/login.dart';
+import 'package:constatn/authentication/login_view.dart';
 import 'package:flutter/material.dart';
-class Signup extends StatelessWidget {
-  const Signup({super.key});
+
+class SignupView extends StatelessWidget {
+  const SignupView({super.key});
 
   @override
   Widget build(BuildContext context) {
     return SafeArea(
-
       child: Scaffold(
         backgroundColor: Colors.white,
-
-
         body: Stack(
           children: [
-            Positioned(top: 16,
+            Positioned(
+              top: 16,
               left: 16,
               child: IconButton(
                 icon: const Icon(Icons.arrow_back, size: 30),
@@ -38,20 +36,13 @@ class Signup extends StatelessWidget {
                   ),
                   Text("Create your account",
                       style: TextStyle(
-                        fontSize: 18,)
-
-
-                  ),
-
+                        fontSize: 18,
+                      )),
                   Container(
                     margin: EdgeInsets.symmetric(vertical: 27),
                     decoration: BoxDecoration(
                       color: Color(0xFFEAFFFF),
                       borderRadius: BorderRadius.circular(19),
-
-
-
-
                     ),
                     width: 380,
                     child: TextField(
@@ -59,23 +50,13 @@ class Signup extends StatelessWidget {
                           border: InputBorder.none,
                           hintText: "Nom d'utilisateur ",
                           hintStyle: TextStyle(fontSize: 25),
-                          prefixIcon: Icon(Icons.person)
-
-                      ),
-
-
+                          prefixIcon: Icon(Icons.person)),
                     ),
-
                   ),
                   Container(
-
                     decoration: BoxDecoration(
                       color: Color(0xFFEAFFFF),
                       borderRadius: BorderRadius.circular(19),
-
-
-
-
                     ),
                     width: 380,
                     child: TextField(
@@ -83,23 +64,14 @@ class Signup extends StatelessWidget {
                           border: InputBorder.none,
                           hintText: "Email ",
                           hintStyle: TextStyle(fontSize: 25),
-                          prefixIcon: Icon(Icons.email)
-
-                      ),
-
-
+                          prefixIcon: Icon(Icons.email)),
                     ),
-
                   ),
                   Container(
                     margin: EdgeInsets.symmetric(vertical: 27),
                     decoration: BoxDecoration(
                       color: Color(0xFFEAFFFF),
                       borderRadius: BorderRadius.circular(19),
-
-
-
-
                     ),
                     width: 380,
                     child: TextField(
@@ -110,22 +82,13 @@ class Signup extends StatelessWidget {
                         hintStyle: TextStyle(fontSize: 25),
                         prefixIcon: Icon(Icons.lock),
                         suffixIcon: Icon(Icons.visibility),
-
                       ),
-
-
                     ),
-
                   ),
                   Container(
-
                     decoration: BoxDecoration(
                       color: Color(0xFFEAFFFF),
                       borderRadius: BorderRadius.circular(19),
-
-
-
-
                     ),
                     width: 380,
                     child: TextField(
@@ -136,28 +99,29 @@ class Signup extends StatelessWidget {
                         hintStyle: TextStyle(fontSize: 25),
                         prefixIcon: Icon(Icons.lock),
                         suffixIcon: Icon(Icons.visibility),
-
                       ),
-
-
                     ),
-
                   ),
                   const SizedBox(height: 27),
                   ElevatedButton(
-                    onPressed: (){
+                    onPressed: () {
                       Navigator.push(
                         context,
-                        MaterialPageRoute(builder: (context) => const Login()),
+                        MaterialPageRoute(
+                            builder: (context) => const LoginView()),
                       );
                     },
                     style: ElevatedButton.styleFrom(
-                      backgroundColor:  const  Color(0xFFEAFFFF),
+                      backgroundColor: const Color(0xFFEAFFFF),
                       foregroundColor: Colors.black,
-                      shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(20),),
-                      padding: const EdgeInsets.symmetric(horizontal: 100, vertical: 18),
-                      textStyle: const TextStyle(fontSize: 25,),
-
+                      shape: RoundedRectangleBorder(
+                        borderRadius: BorderRadius.circular(20),
+                      ),
+                      padding: const EdgeInsets.symmetric(
+                          horizontal: 100, vertical: 18),
+                      textStyle: const TextStyle(
+                        fontSize: 25,
+                      ),
                     ),
                     child: Text("S'inscrire"),
                   ),
@@ -166,47 +130,27 @@ class Signup extends StatelessWidget {
                     children: [
                       Text("Vous avez déja un compte ?",
                           style: TextStyle(
-                            fontSize: 18,)),
+                            fontSize: 18,
+                          )),
                       TextButton(
                         onPressed: () {
                           Navigator.push(
                             context,
-                            MaterialPageRoute(builder: (context) => const Login()),
+                            MaterialPageRoute(
+                                builder: (context) => const LoginView()),
                           );
-
                         },
-                        child: Text("Se connecter",style: TextStyle(color: Colors.purple)),)
-
+                        child: Text("Se connecter",
+                            style: TextStyle(color: Colors.purple)),
+                      )
                     ],
                   )
-
-
-
-
-
-
-
-
-
                 ],
-
               ),
-
             )
-
           ],
-
-
-
-
-
-
-          ),
         ),
-
-
-
-
+      ),
     );
   }
 }
