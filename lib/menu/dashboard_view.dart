@@ -1,6 +1,6 @@
 import 'package:constatn/shared/constants/app_constants.dart';
 import 'package:constatn/shared/values/app_colors.dart';
-import 'package:constatn/start_report_view.dart';
+import 'package:constatn/menu/report/views/start_report_view.dart';
 import 'package:flutter/material.dart';
 
 class DashboardView extends StatelessWidget {
@@ -46,7 +46,7 @@ class DashboardView extends StatelessWidget {
                       Navigator.push(
                         context,
                         MaterialPageRoute(
-                          builder: (context) => const User(),
+                          builder: (context) => const StartReportView(),
                         ),
                       );
                     },
