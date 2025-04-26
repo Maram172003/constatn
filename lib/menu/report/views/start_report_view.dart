@@ -1,6 +1,5 @@
 import 'package:constatn/menu/report/managers/report_manager.dart';
 import 'package:constatn/menu/report/utils/enums/input_mode_type.dart';
-import 'package:constatn/menu/report/views/adding_witnesses_view.dart';
 import 'package:constatn/menu/report/widgets/input_mode_widget.dart';
 import 'package:constatn/shared/constants/app_constants.dart';
 import 'package:constatn/shared/dependency_injection/app_component.dart';
@@ -105,12 +104,7 @@ class _StartReportViewState extends State<StartReportView> {
             onPressed: selectedInputMode != null
                 ? () {
                     reportManager.inputModeType = selectedInputMode;
-                    Navigator.push(
-                      context,
-                      MaterialPageRoute(
-                        builder: (context) => const AddingWitnessesView(),
-                      ),
-                    );
+                    Navigator.pushNamed(context, "/reportSteps");
                   }
                 : null,
             style: ElevatedButton.styleFrom(

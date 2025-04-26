@@ -1,16 +1,20 @@
-import 'package:constatn/menu/report/views/add_witness.dart';
+import 'package:constatn/menu/report/utils/enums/report_step.dart';
 import 'package:constatn/shared/constants/app_constants.dart';
 import 'package:constatn/shared/values/app_colors.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 
-class AddNewWitnessesWidget extends StatelessWidget {
-  const AddNewWitnessesWidget({super.key});
+import '../bloc/update_report_cubit/update_report_cubit.dart';
+
+class AddNewWitnessWidget extends StatelessWidget {
+  const AddNewWitnessWidget({super.key});
 
   @override
   Widget build(BuildContext context) {
+    final updateReportCubit = context.read<UpdateReportCubit>();
     return Container(
       margin: const EdgeInsets.symmetric(
-        horizontal: 20,
+        horizontal: 4,
         vertical: 16,
       ),
       width: MediaQuery.of(context).size.width,
@@ -46,11 +50,9 @@ class AddNewWitnessesWidget extends StatelessWidget {
                     ),
                   ),
                   GestureDetector(
-                    onTap: (){
-                      Navigator.push(
-                        context,
-                        MaterialPageRoute(builder: (context) => AddWitness()),
-                      );
+                    onTap: () {
+                      updateReportCubit.updateReportStep(
+                          newStep: ReportStep.addNewWitness);
                     },
                     child: Container(
                       margin: EdgeInsets.only(
@@ -65,7 +67,6 @@ class AddNewWitnessesWidget extends StatelessWidget {
                         color: Colors.white,
                         size: 20,
                       ),
-                      
                     ),
                   ),
                 ],

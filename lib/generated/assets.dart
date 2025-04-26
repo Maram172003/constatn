@@ -2,12 +2,15 @@
 class Assets {
   Assets._();
 
-  static const String fontsGlacialIndifferenceBold = 'assets/fonts/GlacialIndifference-Bold.otf';
-  static const String fontsGlacialIndifferenceRegular = 'assets/fonts/GlacialIndifference-Regular.otf';
+  static const String fontsGlacialIndifferenceBold =
+      'assets/fonts/GlacialIndifference-Bold.otf';
+  static const String fontsGlacialIndifferenceRegular =
+      'assets/fonts/GlacialIndifference-Regular.otf';
   static const String fontsSatisfyRegular = 'assets/fonts/Satisfy-Regular.ttf';
   static const String images4 = 'assets/images/4.png';
-  static const String imagesOneDriverOneSmartphone = 'assets/images/one_driver_one_smartphone.jpg';
-  static const String imagesTwoDriversOneSmartphone = 'assets/images/two_drivers_one_smartphone.jpg';
+  static const String imagesOneDriverOneSmartphone =
+      'assets/images/one_driver_one_smartphone.jpg';
+  static const String imagesTwoDriversOneSmartphone =
+      'assets/images/two_drivers_one_smartphone.jpg';
   static const String imagesVoiture = 'assets/images/voiture.jpg';
-
 }

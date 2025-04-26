@@ -1,5 +1,6 @@
 import 'package:constatn/authentication/login_view.dart';
 import 'package:constatn/authentication/signup_view.dart';
+import 'package:constatn/menu/report/views/report_steps_view.dart';
 import 'package:constatn/shared/dependency_injection/app_component.dart';
 import 'package:constatn/welcome.dart';
 import 'package:flutter/material.dart';
@@ -9,7 +10,9 @@ void main() async {
 
   await initAppComponentLocator();
 
-  runApp(const MyApp());
+  runApp(
+    const MyApp(),
+  );
 }
 
 class MyApp extends StatelessWidget {
@@ -24,6 +27,7 @@ class MyApp extends StatelessWidget {
         "/": (context) => const Welcome(),
         "/login": (context) => const LoginView(),
         "/signup": (context) => const SignupView(),
+        "/reportSteps": (context) => const ReportStepsView(),
       },
     );
   }
