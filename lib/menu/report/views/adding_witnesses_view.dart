@@ -1,3 +1,4 @@
+import 'package:constatn/menu/report/views/vehicale_type_view.dart';
 import 'package:constatn/menu/report/widgets/add_new_witnesses_widget.dart';
 import 'package:constatn/shared/constants/app_constants.dart';
 import 'package:constatn/shared/values/app_colors.dart';
@@ -24,7 +25,8 @@ class AddingWitnessesView extends StatelessWidget {
             },
           ),
           title: Text(
-            'Ajout des témoins',
+            'Étape 1/7',
+
             style: TextStyle(
               fontFamily: kGlacialStyle,
               color: secondaryColor,
@@ -32,6 +34,7 @@ class AddingWitnessesView extends StatelessWidget {
               fontSize: 25,
             ),
           ),
+          centerTitle: true,
         ),
         body: SingleChildScrollView(
           child: Column(
@@ -40,14 +43,31 @@ class AddingWitnessesView extends StatelessWidget {
                 padding: const EdgeInsets.all(
                   16,
                 ),
-                child: Text(
-                  "Vous pouvez ajouter jusqu'à 4 témoins pour compléter votre e-constat.",
-                  style: TextStyle(
-                    fontFamily: kGlacialStyle,
-                    color: secondaryColor,
-                    fontWeight: FontWeight.w500,
-                    fontSize: 20,
+                child: Container(
+                  alignment: Alignment.centerLeft,
+                  child: Text(
+                    "Ajout des témoins",
+                    style: TextStyle(
+                      fontFamily: kGlacialStyle,
+                      color: secondaryColor,
+                      fontWeight: FontWeight.w600,
+                      fontSize: 25,
+
+                    ),
                   ),
+
+
+                ),
+
+
+              ),
+               Text(
+                "Vous pouvez ajouter jusqu'à 4 témoins pour compléter votre e-constat.",
+                style: TextStyle(
+                  fontFamily: kGlacialStyle,
+                  color: secondaryColor,
+                  fontWeight: FontWeight.w500,
+                  fontSize: 20,
                 ),
               ),
               AddNewWitnessesWidget(),
@@ -81,7 +101,14 @@ class AddingWitnessesView extends StatelessWidget {
               ),
             ),
             ElevatedButton(
-              onPressed: () {},
+              onPressed: () {
+                Navigator.push(
+                  context,
+                  MaterialPageRoute(
+                    builder: (context) => const VehicaleTypeView(),
+                  ),
+                );
+              },
               style: ElevatedButton.styleFrom(
                 backgroundColor: primaryColor,
                 shape: RoundedRectangleBorder(

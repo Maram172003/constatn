@@ -1,3 +1,4 @@
+import 'package:constatn/menu/report/views/add_witness.dart';
 import 'package:constatn/shared/constants/app_constants.dart';
 import 'package:constatn/shared/values/app_colors.dart';
 import 'package:flutter/material.dart';
@@ -44,18 +45,27 @@ class AddNewWitnessesWidget extends StatelessWidget {
                       fontSize: 16,
                     ),
                   ),
-                  Container(
-                    margin: EdgeInsets.only(
-                      left: 10,
-                    ),
-                    padding: EdgeInsets.all(5),
-                    decoration: BoxDecoration(
-                        shape: BoxShape.circle, color: primaryColor),
-                    alignment: Alignment.bottomCenter,
-                    child: Icon(
-                      Icons.add,
-                      color: Colors.white,
-                      size: 20,
+                  GestureDetector(
+                    onTap: (){
+                      Navigator.push(
+                        context,
+                        MaterialPageRoute(builder: (context) => AddWitness()),
+                      );
+                    },
+                    child: Container(
+                      margin: EdgeInsets.only(
+                        left: 10,
+                      ),
+                      padding: EdgeInsets.all(5),
+                      decoration: BoxDecoration(
+                          shape: BoxShape.circle, color: primaryColor),
+                      alignment: Alignment.bottomCenter,
+                      child: Icon(
+                        Icons.add,
+                        color: Colors.white,
+                        size: 20,
+                      ),
+                      
                     ),
                   ),
                 ],

@@ -8,6 +8,7 @@ class ProfileView extends StatelessWidget {
     return SafeArea(
         child: Scaffold(
       body: Text("profil"),
+
     ));
   }
 }
