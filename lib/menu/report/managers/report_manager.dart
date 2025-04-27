@@ -6,13 +6,19 @@ import 'package:injectable/injectable.dart';
 @lazySingleton
 class ReportManager {
   InputModeType? inputModeType;
-  VehicleType? vehicleType;
+  VehicleType? firstVehicleType;
+  VehicleType? secondVehicleType;
 
   List<WitnessEntity>? witnesses;
 
   void clear() {
     inputModeType = null;
-    vehicleType = null;
+    firstVehicleType = null;
+    secondVehicleType = null;
+    witnesses = null;
+  }
+
+  void clearWitnesses() {
     witnesses = null;
   }
 }

@@ -1,4 +1,5 @@
 import 'package:constatn/menu/report/bloc/update_report_cubit/update_report_cubit.dart';
+import 'package:constatn/menu/report/managers/report_manager.dart';
 import 'package:constatn/menu/report/utils/enums/report_step.dart';
 import 'package:constatn/menu/report/views/add_new_witness_view.dart';
 import 'package:constatn/menu/report/views/adding_witnesses_view.dart';
@@ -28,52 +29,56 @@ class _ReportStepsView extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     ReportStep reportStep = ReportStep.addWitnesses;
-    return SafeArea(
-      child: Scaffold(
-        backgroundColor: Colors.white,
-        body: BlocConsumer<UpdateReportCubit, UpdateReportState>(
+    final reportManager = locator<ReportManager>();
+    return PopScope(
+      onPopInvokedWithResult: (_, __) {
+        reportManager.clearWitnesses();
+      },
+      child: SafeArea(
+        child: BlocConsumer<UpdateReportCubit, UpdateReportState>(
             listener: (BuildContext context, UpdateReportState state) {
           if (state is UpdateReportStepWithSuccess) {
             reportStep = state.reportStep;
           }
         }, builder: (BuildContext context, UpdateReportState state) {
-          return Column(
-            children: [
-              Padding(
-                padding: const EdgeInsets.symmetric(
-                  horizontal: 10,
-                  vertical: 16,
-                ),
-                child: Row(
-                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                  children: [
-                    if (reportStep == ReportStep.addWitnesses)
-                      IconButton(
-                        icon: Icon(
-                          Icons.arrow_back_ios_new_rounded,
-                          color: secondaryColor,
+          return Scaffold(
+            backgroundColor: Colors.white,
+            body: Column(
+              children: [
+                Padding(
+                  padding: const EdgeInsets.symmetric(
+                    horizontal: 10,
+                    vertical: 16,
+                  ),
+                  child: Row(
+                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                    children: [
+                      if (reportStep == ReportStep.addWitnesses)
+                        IconButton(
+                          icon: Icon(
+                            Icons.arrow_back_ios_new_rounded,
+                            color: secondaryColor,
+                          ),
+                          onPressed: () {
+                            Navigator.of(context).pop();
+                          },
                         ),
-                        onPressed: () {
-                          Navigator.of(context).pop();
-                        },
+                      Text(
+                        reportStep.headerTitle,
+                        style: TextStyle(
+                          fontFamily: kGlacialStyle,
+                          color: secondaryColor,
+                          fontWeight: FontWeight.w600,
+                          fontSize: 20,
+                        ),
                       ),
-                    Text(
-                      reportStep.headerTitle,
-                      style: TextStyle(
-                        fontFamily: kGlacialStyle,
-                        color: secondaryColor,
-                        fontWeight: FontWeight.w600,
-                        fontSize: 20,
+                      ReportStepProgressWidget(
+                        currentStep: reportStep.step,
                       ),
-                    ),
-                    ReportStepProgressWidget(
-                      currentStep: reportStep.step,
-                    ),
-                  ],
+                    ],
+                  ),
                 ),
-              ),
-              Expanded(
-                child: SingleChildScrollView(
+                Expanded(
                   child: Builder(
                     builder: (BuildContext context) {
                       switch (reportStep) {
@@ -95,8 +100,8 @@ class _ReportStepsView extends StatelessWidget {
                     },
                   ),
                 ),
-              ),
-            ],
+              ],
+            ),
           );
         }),
       ),

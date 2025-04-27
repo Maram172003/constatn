@@ -1,5 +1,6 @@
 import 'package:constatn/menu/report/bloc/update_report_cubit/update_report_cubit.dart';
 import 'package:constatn/menu/report/managers/report_manager.dart';
+import 'package:constatn/menu/report/utils/enums/report_step.dart';
 import 'package:constatn/menu/report/widgets/add_new_witness_widget.dart';
 import 'package:constatn/menu/report/widgets/created_witness_widget.dart';
 import 'package:constatn/shared/constants/app_constants.dart';
@@ -13,6 +14,7 @@ class AddingWitnessesView extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final updateReportCubit = context.read<UpdateReportCubit>();
     final reportManager = locator<ReportManager>();
     var witnesses = reportManager.witnesses ?? [];
     return BlocConsumer<UpdateReportCubit, UpdateReportState>(
@@ -45,7 +47,7 @@ class AddingWitnessesView extends StatelessWidget {
               ),
               Expanded(
                 child: ListView.builder(
-                  physics: NeverScrollableScrollPhysics(),
+                  shrinkWrap: true,
                   itemCount: witnesses.length + 1,
                   // one extra for AddNewWitnessWidget
                   itemBuilder: (BuildContext context, int index) {
@@ -61,6 +63,38 @@ class AddingWitnessesView extends StatelessWidget {
                   },
                 ),
               ),
+              Row(
+                mainAxisAlignment: MainAxisAlignment.end,
+                children: [
+                  ElevatedButton(
+                    onPressed: () {
+                      updateReportCubit.updateReportStep(
+                        newStep: ReportStep.selectVehicleType,
+                      );
+                    },
+                    style: ElevatedButton.styleFrom(
+                      backgroundColor: primaryColor,
+                      shape: RoundedRectangleBorder(
+                        borderRadius: BorderRadius.circular(20),
+                      ),
+                      disabledBackgroundColor: secondaryColor.shade200,
+                      padding: const EdgeInsets.symmetric(
+                        horizontal: 50,
+                        vertical: 18,
+                      ),
+                    ),
+                    child: Text(
+                      "Suivant",
+                      style: TextStyle(
+                        fontFamily: kGlacialStyle,
+                        fontSize: 20,
+                        fontWeight: FontWeight.w500,
+                        color: Colors.white,
+                      ),
+                    ),
+                  ),
+                ],
+              )
             ],
           ),
         );
