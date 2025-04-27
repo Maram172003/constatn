@@ -103,6 +103,7 @@ class _StartReportViewState extends State<StartReportView> {
           floatingActionButton: ElevatedButton(
             onPressed: selectedInputMode != null
                 ? () {
+                    reportManager.clear();
                     reportManager.inputModeType = selectedInputMode;
                     Navigator.pushNamed(context, "/reportSteps");
                   }

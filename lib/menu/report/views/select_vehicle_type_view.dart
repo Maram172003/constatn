@@ -1,4 +1,5 @@
 import 'package:constatn/menu/report/bloc/update_report_cubit/update_report_cubit.dart';
+import 'package:constatn/menu/report/domain/entities/vehicle_data_entity.dart';
 import 'package:constatn/menu/report/managers/report_manager.dart';
 import 'package:constatn/menu/report/utils/enums/input_mode_type.dart';
 import 'package:constatn/menu/report/utils/enums/report_step.dart';
@@ -27,6 +28,22 @@ class _SelectVehicleTypeViewState extends State<SelectVehicleTypeView> {
   void didChangeDependencies() {
     super.didChangeDependencies();
     reportManager = locator<ReportManager>();
+  }
+
+  void _addNewVehicle(
+    String name,
+    Color vehicleBgColor,
+  ) {
+    final vehicles = reportManager.vehicles ?? [];
+    vehicles.add(
+      VehicleDataEntity(
+        docId: UniqueKey().toString(),
+        vehicleType: selectedVehicleType!,
+        vehicleName: name,
+        vehicleBgColor: vehicleBgColor,
+      ),
+    );
+    reportManager.vehicles = vehicles;
   }
 
   @override
@@ -120,6 +137,7 @@ class _SelectVehicleTypeViewState extends State<SelectVehicleTypeView> {
                 children: [
                   OutlinedButton(
                     onPressed: () {
+                      reportManager.clearVehicles();
                       updateReportCubit.updateReportStep(
                         newStep: ReportStep.addWitnesses,
                       );
@@ -149,16 +167,28 @@ class _SelectVehicleTypeViewState extends State<SelectVehicleTypeView> {
                             if (!isSelectingSecondVehicle &&
                                 reportManager.inputModeType ==
                                     InputModeType.twoDriversOneSmartphone) {
-                              // First vehicle selected, now move to select second vehicle
-                              reportManager.firstVehicleType =
-                                  selectedVehicleType;
+                              _addNewVehicle(
+                                'Véhicle A',
+                                primaryColor,
+                              );
                               setState(() {
                                 selectedVehicleType = null;
                                 isSelectingSecondVehicle = true;
                               });
                             } else {
-                              reportManager.firstVehicleType =
-                                  selectedVehicleType;
+                              _addNewVehicle(
+                                reportManager.inputModeType ==
+                                        InputModeType.twoDriversOneSmartphone
+                                    ? 'Véhicle B'
+                                    : 'Véhicle A',
+                                reportManager.inputModeType ==
+                                        InputModeType.twoDriversOneSmartphone
+                                    ? Colors.amber
+                                    : primaryColor,
+                              );
+                              updateReportCubit.updateReportStep(
+                                newStep: ReportStep.addInsurance,
+                              );
                             }
                           }
                         : null,

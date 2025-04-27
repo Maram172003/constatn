@@ -2,6 +2,7 @@ enum ReportStep {
   addWitnesses(step: 1, headerTitle: "Ajout des témoins"),
   addNewWitness(step: 1.5, headerTitle: "Ajout un témoin"),
   selectVehicleType(step: 2, headerTitle: "Type de véhicule"),
+  addInsurance(step: 2.5, headerTitle: "Assurances et immatriculations"),
   contracts(step: 3, headerTitle: "Contrats et conducteurs"),
   accidentPlace(step: 3.5, headerTitle: "Point de choc initital"),
   circumstances(step: 4, headerTitle: "Circonstances"),

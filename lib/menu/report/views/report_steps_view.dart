@@ -3,6 +3,7 @@ import 'package:constatn/menu/report/managers/report_manager.dart';
 import 'package:constatn/menu/report/utils/enums/report_step.dart';
 import 'package:constatn/menu/report/views/add_new_witness_view.dart';
 import 'package:constatn/menu/report/views/adding_witnesses_view.dart';
+import 'package:constatn/menu/report/views/insurance_view.dart';
 import 'package:constatn/menu/report/views/select_vehicle_type_view.dart';
 import 'package:constatn/menu/report/widgets/report_step_progress_widget.dart';
 import 'package:constatn/shared/constants/app_constants.dart';
@@ -88,7 +89,12 @@ class _ReportStepsView extends StatelessWidget {
                           return SelectVehicleTypeView();
                         case ReportStep.addNewWitness:
                           return AddNewWitnessView();
+                        case ReportStep.addInsurance:
+                          return InsuranceView();
                         case ReportStep.contracts:
+                          return Container(
+                            color: Colors.red,
+                          );
                         case ReportStep.accidentPlace:
                         case ReportStep.circumstances:
                         case ReportStep.dateHourAccident:
