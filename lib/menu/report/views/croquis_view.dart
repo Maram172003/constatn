@@ -17,7 +17,8 @@ class _CroquisViewState extends State<CroquisView> {
   File? image;
 
   Future<void> _pickImageFromGallery() async {
-    final pickedFile = await ImagePicker().pickImage(source: ImageSource.gallery);
+    final pickedFile =
+        await ImagePicker().pickImage(source: ImageSource.gallery);
     if (pickedFile != null) {
       setState(() {
         image = File(pickedFile.path);
@@ -74,7 +75,8 @@ class _CroquisViewState extends State<CroquisView> {
                       children: [
                         ElevatedButton.icon(
                           onPressed: _pickImageFromGallery,
-                          icon: const Icon(Icons.photo_library, color: Colors.white),
+                          icon: const Icon(Icons.photo_library,
+                              color: Colors.white),
                           label: Text(
                             "Gallery",
                             style: TextStyle(
@@ -126,7 +128,8 @@ class _CroquisViewState extends State<CroquisView> {
                 shape: RoundedRectangleBorder(
                   borderRadius: BorderRadius.circular(20),
                 ),
-                padding: const EdgeInsets.symmetric(horizontal: 50, vertical: 18),
+                padding:
+                    const EdgeInsets.symmetric(horizontal: 50, vertical: 18),
               ),
               child: Text(
                 "Retour",
@@ -151,7 +154,8 @@ class _CroquisViewState extends State<CroquisView> {
                   borderRadius: BorderRadius.circular(20),
                 ),
                 disabledBackgroundColor: secondaryColor.shade200,
-                padding: const EdgeInsets.symmetric(horizontal: 50, vertical: 18),
+                padding:
+                    const EdgeInsets.symmetric(horizontal: 50, vertical: 18),
               ),
               child: Text(
                 "Valider",

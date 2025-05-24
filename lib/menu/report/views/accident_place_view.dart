@@ -66,7 +66,8 @@ class _AccidentPlaceViewState extends State<AccidentPlaceView> {
                       Expanded(
                         child: Padding(
                           padding: EdgeInsets.only(left: 10),
-                          child: Text("Prendre une photo pour indiquer le point de choc initial"),
+                          child: Text(
+                              "Prendre une photo pour indiquer le point de choc initial"),
                         ),
                       ),
                     ],
@@ -120,12 +121,14 @@ class _AccidentPlaceViewState extends State<AccidentPlaceView> {
                         shape: RoundedRectangleBorder(
                           borderRadius: BorderRadius.circular(20),
                         ),
-                        padding: const EdgeInsets.symmetric(horizontal: 30, vertical: 18),
+                        padding: const EdgeInsets.symmetric(
+                            horizontal: 30, vertical: 18),
                       ),
                     ),
                     ElevatedButton.icon(
                       onPressed: () => _pickImage(ImageSource.gallery),
-                      icon: const Icon(Icons.photo_library, color: Colors.white),
+                      icon:
+                          const Icon(Icons.photo_library, color: Colors.white),
                       label: Text(
                         "Gallery",
                         style: TextStyle(
@@ -140,7 +143,8 @@ class _AccidentPlaceViewState extends State<AccidentPlaceView> {
                         shape: RoundedRectangleBorder(
                           borderRadius: BorderRadius.circular(20),
                         ),
-                        padding: const EdgeInsets.symmetric(horizontal: 30, vertical: 18),
+                        padding: const EdgeInsets.symmetric(
+                            horizontal: 30, vertical: 18),
                       ),
                     ),
                   ],
@@ -186,7 +190,8 @@ class _AccidentPlaceViewState extends State<AccidentPlaceView> {
                 shape: RoundedRectangleBorder(
                   borderRadius: BorderRadius.circular(20),
                 ),
-                padding: const EdgeInsets.symmetric(horizontal: 50, vertical: 18),
+                padding:
+                    const EdgeInsets.symmetric(horizontal: 50, vertical: 18),
               ),
               child: Text(
                 "Retour",
@@ -210,7 +215,8 @@ class _AccidentPlaceViewState extends State<AccidentPlaceView> {
                 shape: RoundedRectangleBorder(
                   borderRadius: BorderRadius.circular(20),
                 ),
-                padding: const EdgeInsets.symmetric(horizontal: 50, vertical: 18),
+                padding:
+                    const EdgeInsets.symmetric(horizontal: 50, vertical: 18),
               ),
               child: Text(
                 "Valider",

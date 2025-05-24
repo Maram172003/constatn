@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 import '../../../shared/constants/app_constants.dart';
 import '../../../shared/values/app_colors.dart';
 import 'accident_place_view.dart';
+
 class ContractsView extends StatefulWidget {
   const ContractsView({super.key});
 
@@ -37,7 +38,6 @@ class _ContractsViewState extends State<ContractsView> {
             ),
           ),
         ),
-
         body: SingleChildScrollView(
           child: Container(
             margin: EdgeInsets.all(16),
@@ -56,11 +56,9 @@ class _ContractsViewState extends State<ContractsView> {
             child: Form(
               key: _formkey,
               autovalidateMode: AutovalidateMode.onUserInteraction,
-
               child: Column(
                 mainAxisSize: MainAxisSize.min,
                 children: [
-
                   Padding(
                     padding: const EdgeInsets.symmetric(
                       vertical: 16,
@@ -111,13 +109,12 @@ class _ContractsViewState extends State<ContractsView> {
                       },
                     ),
                   ),
-
                   Padding(
                     padding: const EdgeInsets.symmetric(
                       vertical: 16,
                     ),
                     child: TextFormField(
-                      controller:_insuredNameController ,
+                      controller: _insuredNameController,
                       decoration: InputDecoration(
                         labelText: 'Nom de l\'assuré*',
                         labelStyle: TextStyle(
@@ -417,7 +414,7 @@ class _ContractsViewState extends State<ContractsView> {
                       vertical: 16,
                     ),
                     child: TextFormField(
-                      controller:_licenseNumberController,
+                      controller: _licenseNumberController,
                       decoration: InputDecoration(
                         labelText: 'Numéro de permis du conducteur *',
                         labelStyle: TextStyle(
@@ -462,8 +459,6 @@ class _ContractsViewState extends State<ContractsView> {
                       },
                     ),
                   ),
-
-
                 ],
               ),
             ),

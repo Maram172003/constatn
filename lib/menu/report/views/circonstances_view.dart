@@ -117,12 +117,10 @@ class _CirconstancesViewState extends State<CirconstancesView> {
               ),
               ElevatedButton(
                 onPressed: () {
-
-                    Navigator.push(
-                      context,
-                      MaterialPageRoute(
-                          builder: (context) => DateHourView()),
-                    );
+                  Navigator.push(
+                    context,
+                    MaterialPageRoute(builder: (context) => DateHourView()),
+                  );
 
                   // Action de validation
                 },

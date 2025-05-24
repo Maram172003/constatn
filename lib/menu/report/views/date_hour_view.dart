@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 
 import '../../../shared/constants/app_constants.dart';
 import '../../../shared/values/app_colors.dart';
+
 class DateHourView extends StatefulWidget {
   const DateHourView({super.key});
 
@@ -40,14 +41,15 @@ class _DateHourViewState extends State<DateHourView> {
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
               Padding(
-                  padding: EdgeInsets.only(left: 16, right: 16, top: 16),
-                  child: Text('Veuillez renseigner la date, l\'heure et le lieu de l\'accident :',
-                    style: TextStyle(
-                      fontFamily: kGlacialStyle,
-                      color: secondaryColor,
-                      fontWeight: FontWeight.w500,
-                      fontSize: 20,
-                    ),
+                padding: EdgeInsets.only(left: 16, right: 16, top: 16),
+                child: Text(
+                  'Veuillez renseigner la date, l\'heure et le lieu de l\'accident :',
+                  style: TextStyle(
+                    fontFamily: kGlacialStyle,
+                    color: secondaryColor,
+                    fontWeight: FontWeight.w500,
+                    fontSize: 20,
+                  ),
                 ),
               ),
               Container(
@@ -67,11 +69,9 @@ class _DateHourViewState extends State<DateHourView> {
                 child: Form(
                   key: _formkey,
                   autovalidateMode: AutovalidateMode.onUserInteraction,
-
                   child: Column(
                     mainAxisSize: MainAxisSize.min,
                     children: [
-
                       Padding(
                         padding: const EdgeInsets.symmetric(
                           vertical: 16,
@@ -122,13 +122,12 @@ class _DateHourViewState extends State<DateHourView> {
                           },
                         ),
                       ),
-
                       Padding(
                         padding: const EdgeInsets.symmetric(
                           vertical: 16,
                         ),
                         child: TextFormField(
-                          controller:_heureController ,
+                          controller: _heureController,
                           decoration: InputDecoration(
                             labelText: 'Heure*',
                             labelStyle: TextStyle(
@@ -323,7 +322,6 @@ class _DateHourViewState extends State<DateHourView> {
                           },
                         ),
                       ),
-
                     ],
                   ),
                 ),
@@ -362,8 +360,7 @@ class _DateHourViewState extends State<DateHourView> {
                 if (_formkey.currentState!.validate()) {
                   Navigator.push(
                     context,
-                    MaterialPageRoute(
-                        builder: (context) => CroquisView()),
+                    MaterialPageRoute(builder: (context) => CroquisView()),
                   );
                 }
               },

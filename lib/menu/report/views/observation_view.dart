@@ -2,6 +2,7 @@ import 'package:constatn/menu/report/views/signature_view.dart';
 import 'package:flutter/material.dart';
 import '../../../shared/constants/app_constants.dart';
 import '../../../shared/values/app_colors.dart';
+
 class ObservationView extends StatefulWidget {
   const ObservationView({super.key});
 
@@ -29,50 +30,49 @@ class _ObservationViewState extends State<ObservationView> {
         ),
         body: SingleChildScrollView(
             child: Column(
-              crossAxisAlignment: CrossAxisAlignment.start,
-              children: [
-                Padding(
-                  padding: EdgeInsets.only(left: 16, right: 16, top: 16),
-                    child: Text('Ajoutez des précisions sur l\'accident ',
-                    style: TextStyle(
-                      fontFamily: kGlacialStyle,
-                      color: secondaryColor,
-                      fontWeight: FontWeight.w500,
-                      fontSize: 20,
+          crossAxisAlignment: CrossAxisAlignment.start,
+          children: [
+            Padding(
+              padding: EdgeInsets.only(left: 16, right: 16, top: 16),
+              child: Text(
+                'Ajoutez des précisions sur l\'accident ',
+                style: TextStyle(
+                  fontFamily: kGlacialStyle,
+                  color: secondaryColor,
+                  fontWeight: FontWeight.w500,
+                  fontSize: 20,
+                ),
+              ),
+            ),
+            Container(
+              margin: EdgeInsets.all(16),
+              padding: EdgeInsets.all(16),
+              decoration: BoxDecoration(
+                color: Colors.white,
+                borderRadius: BorderRadius.all(
+                  Radius.circular(
+                    8,
+                  ),
+                ),
+                border: Border.all(
+                  color: secondaryColor.shade200,
+                ),
+              ),
+              child: Padding(
+                padding: const EdgeInsets.symmetric(horizontal: 16.0),
+                child: TextField(
+                  maxLines: 3,
+                  decoration: InputDecoration(
+                    hintText: "Commentaire (optionnel)",
+                    border: OutlineInputBorder(
+                      borderRadius: BorderRadius.circular(8),
                     ),
                   ),
                 ),
-                Container(
-                  margin: EdgeInsets.all(16),
-                  padding: EdgeInsets.all(16),
-                  decoration: BoxDecoration(
-                    color: Colors.white,
-                    borderRadius: BorderRadius.all(
-                      Radius.circular(
-                        8,
-                      ),
-                    ),
-                    border: Border.all(
-                      color: secondaryColor.shade200,
-                    ),
-                  ),
-                  child: Padding(
-                    padding: const EdgeInsets.symmetric(horizontal: 16.0),
-                    child: TextField(
-                      maxLines: 3,
-                      decoration: InputDecoration(
-                        hintText: "Commentaire (optionnel)",
-                        border: OutlineInputBorder(
-                          borderRadius: BorderRadius.circular(8),
-                        ),
-                      ),
-                    ),
-                  ),
-                ),
-
-              ],
-            )
-        ),
+              ),
+            ),
+          ],
+        )),
         floatingActionButton: Row(
           mainAxisAlignment: MainAxisAlignment.spaceAround,
           children: [
@@ -103,10 +103,8 @@ class _ObservationViewState extends State<ObservationView> {
               onPressed: () {
                 Navigator.push(
                   context,
-                  MaterialPageRoute(
-                      builder: (context) => SignatureView()),
+                  MaterialPageRoute(builder: (context) => SignatureView()),
                 );
-
               },
               style: ElevatedButton.styleFrom(
                 backgroundColor: primaryColor,
