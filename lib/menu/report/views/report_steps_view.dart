@@ -1,8 +1,10 @@
 import 'package:constatn/menu/report/bloc/update_report_cubit/update_report_cubit.dart';
 import 'package:constatn/menu/report/managers/report_manager.dart';
 import 'package:constatn/menu/report/utils/enums/report_step.dart';
+import 'package:constatn/menu/report/views/accident_place_view.dart';
 import 'package:constatn/menu/report/views/add_new_witness_view.dart';
 import 'package:constatn/menu/report/views/adding_witnesses_view.dart';
+import 'package:constatn/menu/report/views/contracts_view.dart';
 import 'package:constatn/menu/report/views/insurance_view.dart';
 import 'package:constatn/menu/report/views/select_vehicle_type_view.dart';
 import 'package:constatn/menu/report/widgets/report_step_progress_widget.dart';
@@ -11,6 +13,9 @@ import 'package:constatn/shared/dependency_injection/app_component.dart';
 import 'package:constatn/shared/values/app_colors.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+
+import 'circonstances_view.dart';
+import 'date_hour_view.dart';
 
 class ReportStepsView extends StatelessWidget {
   const ReportStepsView({super.key});
@@ -92,12 +97,13 @@ class _ReportStepsView extends StatelessWidget {
                         case ReportStep.addInsurance:
                           return InsuranceView();
                         case ReportStep.contracts:
-                          return Container(
-                            color: Colors.red,
-                          );
+                          return ContractsView();
                         case ReportStep.accidentPlace:
+                          return AccidentPlaceView();
                         case ReportStep.circumstances:
+                          return CirconstancesView();
                         case ReportStep.dateHourAccident:
+                          return DateHourView();
                         case ReportStep.sketch:
                         case ReportStep.observations:
                         case ReportStep.sign:
