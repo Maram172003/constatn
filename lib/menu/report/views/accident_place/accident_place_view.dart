@@ -2,22 +2,22 @@ import 'package:constatn/menu/report/bloc/update_report_cubit/update_report_cubi
 import 'package:constatn/menu/report/domain/entities/vehicle_data_entity.dart';
 import 'package:constatn/menu/report/managers/report_manager.dart';
 import 'package:constatn/menu/report/utils/enums/report_step.dart';
-import 'package:constatn/menu/report/views/contracts/add_vehicle_contract_view.dart';
-import 'package:constatn/menu/report/widgets/contract_card_widget.dart';
+import 'package:constatn/menu/report/views/accident_place/add_accident_place_view.dart';
+import 'package:constatn/menu/report/widgets/accident_place_card_widget.dart';
 import 'package:constatn/shared/constants/app_constants.dart';
 import 'package:constatn/shared/dependency_injection/app_component.dart';
 import 'package:constatn/shared/values/app_colors.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
-class ContractsView extends StatefulWidget {
-  const ContractsView({super.key});
+class AccidentPlaceView extends StatefulWidget {
+  const AccidentPlaceView({super.key});
 
   @override
-  State<ContractsView> createState() => _ContractsViewState();
+  State<AccidentPlaceView> createState() => _AccidentPlaceViewState();
 }
 
-class _ContractsViewState extends State<ContractsView> {
+class _AccidentPlaceViewState extends State<AccidentPlaceView> {
   @override
   Widget build(BuildContext context) {
     final updateReportCubit = context.read<UpdateReportCubit>();
@@ -34,13 +34,13 @@ class _ContractsViewState extends State<ContractsView> {
               itemBuilder: (BuildContext context, int index) {
                 return Padding(
                   padding: const EdgeInsets.symmetric(vertical: 8),
-                  child: ContractCardWidget(
+                  child: AccidentPlaceCardWidget(
                     vehicleDataEntity: vehicles[index],
                     onClicked: () {
                       Navigator.push<List<VehicleDataEntity>?>(
                         context,
                         MaterialPageRoute(
-                          builder: (context) => AddVehicleContractView(
+                          builder: (context) => AddAccidentPlaceView(
                             vehicleDataEntity: vehicles[index],
                           ),
                         ),
@@ -61,7 +61,7 @@ class _ContractsViewState extends State<ContractsView> {
               InkWell(
                 onTap: () {
                   updateReportCubit.updateReportStep(
-                    newStep: ReportStep.addInsurance,
+                    newStep: ReportStep.contracts,
                   );
                 },
                 child: Text(
@@ -80,13 +80,9 @@ class _ContractsViewState extends State<ContractsView> {
                 ),
                 child: ElevatedButton(
                   onPressed: vehicles.any(
-                          (element) => element.vehicleContractEntity == null)
+                          (element) => element.vehicleAccidentPlace == null)
                       ? null
-                      : () {
-                          updateReportCubit.updateReportStep(
-                            newStep: ReportStep.accidentPlace,
-                          );
-                        },
+                      : () {},
                   style: ElevatedButton.styleFrom(
                     backgroundColor: primaryColor,
                     shape: RoundedRectangleBorder(

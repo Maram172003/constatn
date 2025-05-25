@@ -1,7 +1,7 @@
 import 'package:constatn/menu/report/bloc/update_report_cubit/update_report_cubit.dart';
 import 'package:constatn/menu/report/managers/report_manager.dart';
 import 'package:constatn/menu/report/utils/enums/report_step.dart';
-import 'package:constatn/menu/report/views/accident_place_view.dart';
+import 'package:constatn/menu/report/views/accident_place/accident_place_view.dart';
 import 'package:constatn/menu/report/views/add_new_witness_view.dart';
 import 'package:constatn/menu/report/views/adding_witnesses_view.dart';
 import 'package:constatn/menu/report/views/contracts/contracts_view.dart';

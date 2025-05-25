@@ -1,3 +1,4 @@
+import 'package:constatn/menu/report/domain/entities/vehicle_accident_place.dart';
 import 'package:constatn/menu/report/domain/entities/vehicle_contract_entity.dart';
 import 'package:constatn/menu/report/utils/enums/vehicle_type.dart';
 import 'package:flutter/cupertino.dart';
@@ -11,6 +12,7 @@ class VehicleDataEntity {
     this.carRegistrationNumber,
     this.insuranceName,
     this.vehicleContractEntity,
+    this.vehicleAccidentPlace,
   });
 
   final String docId;
@@ -19,6 +21,7 @@ class VehicleDataEntity {
 
   final String? carRegistrationNumber;
   final VehicleContractEntity? vehicleContractEntity;
+  final VehicleAccidentPlace? vehicleAccidentPlace;
   final String? insuranceName;
   final Color vehicleBgColor;
 
@@ -26,6 +29,7 @@ class VehicleDataEntity {
     String? registrationNumber,
     String? insurance,
     VehicleContractEntity? contract,
+    VehicleAccidentPlace? accidentPlace,
   }) {
     return VehicleDataEntity(
       vehicleBgColor: vehicleBgColor,
@@ -35,6 +39,7 @@ class VehicleDataEntity {
       carRegistrationNumber: registrationNumber ?? carRegistrationNumber,
       insuranceName: insurance ?? insuranceName,
       vehicleContractEntity: contract ?? vehicleContractEntity,
+      vehicleAccidentPlace: accidentPlace ?? vehicleAccidentPlace,
     );
   }
 }
