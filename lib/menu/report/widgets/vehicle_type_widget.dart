@@ -7,10 +7,13 @@ class VehicleTypeWidget extends StatelessWidget {
     super.key,
     required this.vehicleName,
     required this.vehicleBgColor,
+    this.registrationNumber,
   });
 
   final String vehicleName;
   final Color vehicleBgColor;
+
+  final String? registrationNumber;
 
   @override
   Widget build(BuildContext context) {
@@ -29,8 +32,8 @@ class VehicleTypeWidget extends StatelessWidget {
           ),
         ),
         Padding(
-          padding: const EdgeInsets.symmetric(
-            horizontal: 16,
+          padding: const EdgeInsets.only(
+            left: 16,
           ),
           child: Text(
             vehicleName,
@@ -41,7 +44,17 @@ class VehicleTypeWidget extends StatelessWidget {
               color: secondaryColor,
             ),
           ),
-        )
+        ),
+        if (registrationNumber != null)
+          Text(
+            ': $registrationNumber',
+            style: TextStyle(
+              fontFamily: kGlacialStyle,
+              fontSize: 16,
+              fontWeight: FontWeight.w600,
+              color: secondaryColor,
+            ),
+          ),
       ],
     );
   }

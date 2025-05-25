@@ -4,8 +4,8 @@ import 'package:constatn/menu/report/utils/enums/report_step.dart';
 import 'package:constatn/menu/report/views/accident_place_view.dart';
 import 'package:constatn/menu/report/views/add_new_witness_view.dart';
 import 'package:constatn/menu/report/views/adding_witnesses_view.dart';
-import 'package:constatn/menu/report/views/contracts_view.dart';
-import 'package:constatn/menu/report/views/insurance_view.dart';
+import 'package:constatn/menu/report/views/contracts/contracts_view.dart';
+import 'package:constatn/menu/report/views/insurrance/insurance_view.dart';
 import 'package:constatn/menu/report/views/select_vehicle_type_view.dart';
 import 'package:constatn/menu/report/widgets/report_step_progress_widget.dart';
 import 'package:constatn/shared/constants/app_constants.dart';
@@ -22,10 +22,7 @@ class ReportStepsView extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return BlocProvider<UpdateReportCubit>(
-      create: (BuildContext context) => locator<UpdateReportCubit>(),
-      child: _ReportStepsView(),
-    );
+    return _ReportStepsView();
   }
 }
 

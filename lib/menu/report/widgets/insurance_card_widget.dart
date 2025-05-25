@@ -13,6 +13,7 @@ class InsuranceCardWidget extends StatelessWidget {
 
   final VehicleDataEntity vehicleDataEntity;
   final VoidCallback onClicked;
+
   @override
   Widget build(BuildContext context) {
     return Container(
@@ -31,14 +32,56 @@ class InsuranceCardWidget extends StatelessWidget {
         ),
       ),
       child: Column(
+        mainAxisAlignment: MainAxisAlignment.start,
+        crossAxisAlignment: CrossAxisAlignment.start,
         children: [
           VehicleTypeWidget(
             vehicleName: vehicleDataEntity.vehicleName,
             vehicleBgColor: vehicleDataEntity.vehicleBgColor,
           ),
-          Padding(
-            padding: const EdgeInsets.only(
-              top: 16,
+          if (vehicleDataEntity.carRegistrationNumber != null &&
+              vehicleDataEntity.insuranceName != null)
+            Padding(
+              padding: const EdgeInsets.symmetric(
+                vertical: 16,
+              ),
+              child: Text(
+                'Informations renseignées:',
+                style: TextStyle(
+                  fontWeight: FontWeight.w600,
+                  fontFamily: kGlacialStyle,
+                  fontSize: 16,
+                  color: secondaryColor,
+                ),
+              ),
+            ),
+          if (vehicleDataEntity.insuranceName != null)
+            Padding(
+              padding: const EdgeInsets.symmetric(
+                vertical: 8,
+              ),
+              child: Text(
+                '* ${vehicleDataEntity.insuranceName}',
+                style: TextStyle(
+                  fontFamily: kGlacialStyle,
+                  fontSize: 16,
+                  color: secondaryColor,
+                ),
+              ),
+            ),
+          if (vehicleDataEntity.carRegistrationNumber != null)
+            Text(
+              '* ${vehicleDataEntity.carRegistrationNumber}',
+              style: TextStyle(
+                fontFamily: kGlacialStyle,
+                fontSize: 16,
+                color: secondaryColor,
+              ),
+            ),
+          Container(
+            width: MediaQuery.of(context).size.width,
+            margin: const EdgeInsets.only(
+              top: 30,
             ),
             child: ElevatedButton(
               onPressed: onClicked,
@@ -49,7 +92,7 @@ class InsuranceCardWidget extends StatelessWidget {
                 ),
                 disabledBackgroundColor: secondaryColor.shade200,
                 padding: const EdgeInsets.symmetric(
-                  horizontal: 50,
+                  horizontal: 0,
                   vertical: 18,
                 ),
               ),

@@ -68,6 +68,7 @@ class AddingWitnessesView extends StatelessWidget {
                 children: [
                   ElevatedButton(
                     onPressed: () {
+                      reportManager.clearVehicles();
                       updateReportCubit.updateReportStep(
                         newStep: ReportStep.selectVehicleType,
                       );
