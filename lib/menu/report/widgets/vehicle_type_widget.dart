@@ -8,32 +8,35 @@ class VehicleTypeWidget extends StatelessWidget {
     required this.vehicleName,
     required this.vehicleBgColor,
     this.registrationNumber,
+    this.reverse = false,
   });
 
   final String vehicleName;
   final Color vehicleBgColor;
 
   final String? registrationNumber;
+  final bool reverse;
 
   @override
   Widget build(BuildContext context) {
     return Row(
       children: [
-        Container(
-          padding: EdgeInsets.all(12),
-          decoration: BoxDecoration(
-            shape: BoxShape.circle,
-            color: vehicleBgColor,
+        if (!reverse)
+          Container(
+            padding: EdgeInsets.all(12),
+            decoration: BoxDecoration(
+              shape: BoxShape.circle,
+              color: vehicleBgColor,
+            ),
+            child: Icon(
+              Icons.local_shipping_outlined,
+              size: 20,
+              color: Colors.white,
+            ),
           ),
-          child: Icon(
-            Icons.local_shipping_outlined,
-            size: 20,
-            color: Colors.white,
-          ),
-        ),
         Padding(
-          padding: const EdgeInsets.only(
-            left: 16,
+          padding: EdgeInsets.only(
+            left: reverse ? 0 : 16,
           ),
           child: Text(
             vehicleName,
@@ -53,6 +56,22 @@ class VehicleTypeWidget extends StatelessWidget {
               fontSize: 16,
               fontWeight: FontWeight.w600,
               color: secondaryColor,
+            ),
+          ),
+        if (reverse)
+          Container(
+            margin: EdgeInsets.only(
+              left: 16,
+            ),
+            padding: EdgeInsets.all(12),
+            decoration: BoxDecoration(
+              shape: BoxShape.circle,
+              color: vehicleBgColor,
+            ),
+            child: Icon(
+              Icons.local_shipping_outlined,
+              size: 20,
+              color: Colors.white,
             ),
           ),
       ],

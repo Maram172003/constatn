@@ -13,6 +13,7 @@ class VehicleDataEntity {
     this.insuranceName,
     this.vehicleContractEntity,
     this.vehicleAccidentPlace,
+    this.circumstancesList,
   });
 
   final String docId;
@@ -22,6 +23,7 @@ class VehicleDataEntity {
   final String? carRegistrationNumber;
   final VehicleContractEntity? vehicleContractEntity;
   final VehicleAccidentPlace? vehicleAccidentPlace;
+  final List<String>? circumstancesList;
   final String? insuranceName;
   final Color vehicleBgColor;
 
@@ -30,6 +32,7 @@ class VehicleDataEntity {
     String? insurance,
     VehicleContractEntity? contract,
     VehicleAccidentPlace? accidentPlace,
+    List<String>? circumstances,
   }) {
     return VehicleDataEntity(
       vehicleBgColor: vehicleBgColor,
@@ -40,6 +43,7 @@ class VehicleDataEntity {
       insuranceName: insurance ?? insuranceName,
       vehicleContractEntity: contract ?? vehicleContractEntity,
       vehicleAccidentPlace: accidentPlace ?? vehicleAccidentPlace,
+      circumstancesList: circumstances ?? circumstancesList,
     );
   }
 }

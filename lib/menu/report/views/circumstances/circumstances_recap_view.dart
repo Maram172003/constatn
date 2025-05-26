@@ -1,23 +1,16 @@
 import 'package:constatn/menu/report/bloc/update_report_cubit/update_report_cubit.dart';
-import 'package:constatn/menu/report/domain/entities/vehicle_data_entity.dart';
 import 'package:constatn/menu/report/managers/report_manager.dart';
 import 'package:constatn/menu/report/utils/enums/report_step.dart';
-import 'package:constatn/menu/report/views/accident_place/add_accident_place_view.dart';
-import 'package:constatn/menu/report/widgets/accident_place_card_widget.dart';
+import 'package:constatn/menu/report/widgets/circumstance_card_widget.dart';
 import 'package:constatn/shared/constants/app_constants.dart';
 import 'package:constatn/shared/dependency_injection/app_component.dart';
 import 'package:constatn/shared/values/app_colors.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
-class AccidentPlaceView extends StatefulWidget {
-  const AccidentPlaceView({super.key});
+class CircumstancesRecapView extends StatelessWidget {
+  const CircumstancesRecapView({super.key});
 
-  @override
-  State<AccidentPlaceView> createState() => _AccidentPlaceViewState();
-}
-
-class _AccidentPlaceViewState extends State<AccidentPlaceView> {
   @override
   Widget build(BuildContext context) {
     final updateReportCubit = context.read<UpdateReportCubit>();
@@ -34,22 +27,8 @@ class _AccidentPlaceViewState extends State<AccidentPlaceView> {
               itemBuilder: (BuildContext context, int index) {
                 return Padding(
                   padding: const EdgeInsets.symmetric(vertical: 8),
-                  child: AccidentPlaceCardWidget(
+                  child: CircumstanceCardWidget(
                     vehicleDataEntity: vehicles[index],
-                    onClicked: () {
-                      Navigator.push<List<VehicleDataEntity>?>(
-                        context,
-                        MaterialPageRoute(
-                          builder: (context) => AddAccidentPlaceView(
-                            vehicleDataEntity: vehicles[index],
-                          ),
-                        ),
-                      ).then((value) {
-                        setState(() {
-                          vehicles = value ?? [];
-                        });
-                      });
-                    },
                   ),
                 );
               },
@@ -60,8 +39,15 @@ class _AccidentPlaceViewState extends State<AccidentPlaceView> {
             children: [
               InkWell(
                 onTap: () {
+                  final updatedVehicles = vehicles.asMap().entries.map((entry) {
+                    final vehicle = entry.value;
+                    return vehicle.copyWith(
+                      circumstances: null,
+                    );
+                  }).toList();
+                  reportManager.vehicles = updatedVehicles;
                   updateReportCubit.updateReportStep(
-                    newStep: ReportStep.contracts,
+                    newStep: ReportStep.accidentPlace,
                   );
                 },
                 child: Text(
@@ -79,14 +65,13 @@ class _AccidentPlaceViewState extends State<AccidentPlaceView> {
                   left: 20,
                 ),
                 child: ElevatedButton(
-                  onPressed: vehicles.any(
-                          (element) => element.vehicleAccidentPlace == null)
-                      ? null
-                      : () {
-                          updateReportCubit.updateReportStep(
-                            newStep: ReportStep.circumstances,
-                          );
-                        },
+                  onPressed: () {
+                    /* updateReportCubit.updateReportStep(
+                      newStep: ReportStep.dateHourAccident,
+                    );
+
+                    */
+                  },
                   style: ElevatedButton.styleFrom(
                     backgroundColor: primaryColor,
                     shape: RoundedRectangleBorder(
