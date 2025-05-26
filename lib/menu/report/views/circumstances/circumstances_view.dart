@@ -64,7 +64,8 @@ class _CircumstancesViewState extends State<CircumstancesView> {
                         (entry) => VehicleTypeWidget(
                           vehicleName: entry.value.vehicleName,
                           vehicleBgColor: entry.value.vehicleBgColor,
-                          reverse: entry.key == vehicles.length - 1,
+                          reverse: entry.key == vehicles.length - 1 &&
+                              vehicles.length > 1,
                         ),
                       )
                       .toList(),

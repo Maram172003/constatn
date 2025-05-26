@@ -66,11 +66,9 @@ class CircumstancesRecapView extends StatelessWidget {
                 ),
                 child: ElevatedButton(
                   onPressed: () {
-                    /* updateReportCubit.updateReportStep(
+                    updateReportCubit.updateReportStep(
                       newStep: ReportStep.dateHourAccident,
                     );
-
-                    */
                   },
                   style: ElevatedButton.styleFrom(
                     backgroundColor: primaryColor,
