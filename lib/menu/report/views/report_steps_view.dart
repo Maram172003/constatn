@@ -7,7 +7,9 @@ import 'package:constatn/menu/report/views/adding_witnesses_view.dart';
 import 'package:constatn/menu/report/views/circumstances/circumstances_recap_view.dart';
 import 'package:constatn/menu/report/views/contracts/contracts_view.dart';
 import 'package:constatn/menu/report/views/insurrance/insurance_view.dart';
+import 'package:constatn/menu/report/views/observation_view.dart';
 import 'package:constatn/menu/report/views/select_vehicle_type_view.dart';
+import 'package:constatn/menu/report/views/signature_view.dart';
 import 'package:constatn/menu/report/views/sketch_view.dart';
 import 'package:constatn/menu/report/widgets/report_step_progress_widget.dart';
 import 'package:constatn/shared/constants/app_constants.dart';
@@ -108,8 +110,9 @@ class _ReportStepsView extends StatelessWidget {
                         case ReportStep.sketch:
                           return SketchView();
                         case ReportStep.observations:
+                          return ObservationView();
                         case ReportStep.sign:
-                          return SizedBox.shrink();
+                          return SignatureView();
                       }
                     },
                   ),

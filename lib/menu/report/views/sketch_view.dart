@@ -138,7 +138,13 @@ class _SketchViewState extends State<SketchView> {
                     left: 20,
                   ),
                   child: ElevatedButton(
-                    onPressed: image != null ? () {} : null,
+                    onPressed: image != null
+                        ? () {
+                            updateReportCubit.updateReportStep(
+                              newStep: ReportStep.observations,
+                            );
+                          }
+                        : null,
                     style: ElevatedButton.styleFrom(
                       backgroundColor: primaryColor,
                       shape: RoundedRectangleBorder(
@@ -151,7 +157,7 @@ class _SketchViewState extends State<SketchView> {
                       ),
                     ),
                     child: Text(
-                      "Valider",
+                      "Suivant",
                       style: TextStyle(
                         fontFamily: kGlacialStyle,
                         fontSize: 20,

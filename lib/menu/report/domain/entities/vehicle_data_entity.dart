@@ -14,6 +14,7 @@ class VehicleDataEntity {
     this.vehicleContractEntity,
     this.vehicleAccidentPlace,
     this.circumstancesList,
+    this.observationDescription,
   });
 
   final String docId;
@@ -25,11 +26,13 @@ class VehicleDataEntity {
   final VehicleAccidentPlace? vehicleAccidentPlace;
   final List<String>? circumstancesList;
   final String? insuranceName;
+  final String? observationDescription;
   final Color vehicleBgColor;
 
   VehicleDataEntity copyWith({
     String? registrationNumber,
     String? insurance,
+    String? observation,
     VehicleContractEntity? contract,
     VehicleAccidentPlace? accidentPlace,
     List<String>? circumstances,
@@ -44,6 +47,7 @@ class VehicleDataEntity {
       vehicleContractEntity: contract ?? vehicleContractEntity,
       vehicleAccidentPlace: accidentPlace ?? vehicleAccidentPlace,
       circumstancesList: circumstances ?? circumstancesList,
+      observationDescription: observation ?? observationDescription,
     );
   }
 }
