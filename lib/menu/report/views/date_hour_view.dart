@@ -1,10 +1,9 @@
 import 'package:constatn/menu/report/bloc/update_report_cubit/update_report_cubit.dart';
 import 'package:constatn/menu/report/utils/enums/report_step.dart';
+import 'package:constatn/shared/constants/app_constants.dart';
+import 'package:constatn/shared/values/app_colors.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-
-import '../../../shared/constants/app_constants.dart';
-import '../../../shared/values/app_colors.dart';
 
 class DateHourView extends StatefulWidget {
   const DateHourView({super.key});
@@ -347,7 +346,11 @@ class _DateHourViewState extends State<DateHourView> {
                   ),
                   child: ElevatedButton(
                     onPressed: () {
-                      if (_formkey.currentState!.validate()) {}
+                      if (_formkey.currentState!.validate()) {
+                        updateReportCubit.updateReportStep(
+                          newStep: ReportStep.sketch,
+                        );
+                      }
                     },
                     style: ElevatedButton.styleFrom(
                       backgroundColor: primaryColor,
