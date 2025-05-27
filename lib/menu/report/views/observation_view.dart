@@ -147,7 +147,7 @@ class _ObservationViewState extends State<ObservationView> {
                       _addVehicleObservation(docId);
 
                       updateReportCubit.updateReportStep(
-                        newStep: ReportStep.sign,
+                        newStep: ReportStep.recap,
                       );
                     }
                   },

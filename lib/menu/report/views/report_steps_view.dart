@@ -8,6 +8,7 @@ import 'package:constatn/menu/report/views/circumstances/circumstances_recap_vie
 import 'package:constatn/menu/report/views/contracts/contracts_view.dart';
 import 'package:constatn/menu/report/views/insurrance/insurance_view.dart';
 import 'package:constatn/menu/report/views/observation_view.dart';
+import 'package:constatn/menu/report/views/recap_view.dart';
 import 'package:constatn/menu/report/views/select_vehicle_type_view.dart';
 import 'package:constatn/menu/report/views/signature_view.dart';
 import 'package:constatn/menu/report/views/sketch_view.dart';
@@ -109,6 +110,8 @@ class _ReportStepsView extends StatelessWidget {
                           return DateHourView();
                         case ReportStep.sketch:
                           return SketchView();
+                        case ReportStep.recap:
+                          return RecapView();
                         case ReportStep.observations:
                           return ObservationView();
                         case ReportStep.sign:

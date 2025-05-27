@@ -10,6 +10,7 @@ enum ReportStep {
   dateHourAccident(step: 4.5, headerTitle: "Date,heure et lieu"),
   sketch(step: 5, headerTitle: "Dessiner le croquis"),
   observations(step: 6, headerTitle: "Observations"),
+  recap(step: 6.5, headerTitle: "Récapitulatif"),
   sign(step: 7, headerTitle: "Signature");
 
   final double step;
